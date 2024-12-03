@@ -7,6 +7,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/settings" element={<Settings />}></Route>
+        <Route path="/" element={<div>bezpeka-veritas</div>}></Route>
       </Routes>
     </BrowserRouter>
   );
