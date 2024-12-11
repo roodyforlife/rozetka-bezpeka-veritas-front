@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import { Loader } from '../../../../components/Loader/Loader'
+import React, { useState } from 'react'
 import cl from './Templates.module.css';
 import { Button } from '../../../../components/UI/Button/Button';
 import { ITemplate } from '../../../../interfaces/ITemplate';
 import { Template } from '../Template/Template';
 import { TemplateCreateModal } from '../TemplateCreateModal/TemplateCreateModal';
-import { getTemplates } from '../../../../http/templateApi';
 
 interface IProps {
   templates: ITemplate[]

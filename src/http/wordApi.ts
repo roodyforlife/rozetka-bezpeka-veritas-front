@@ -3,7 +3,7 @@ import { IResultDto } from "../interfaces/IResultDto";
 import { IWordFile } from "../interfaces/IWordFile";
 
 export const uploadWordFile = async (formData: FormData) => {
-     const { data } = await $host.post('word/upload', formData, {
+     await $host.post('word/upload', formData, {
         headers: {
             "Content-Type": "multipart/form-data",
         },
@@ -30,5 +30,5 @@ export const getWordFiles = async (): Promise<IWordFile[]> => {
 }
 
 export const removeWordFile = async (id: string) => {
-    const { data } = await $host.delete('word/file/' + id)
+    await $host.delete('word/file/' + id)
 }

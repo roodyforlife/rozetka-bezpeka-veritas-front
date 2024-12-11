@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import { getWordFiles } from '../../../../http/wordApi'
+import React, { useState } from 'react'
 import { IWordFile } from '../../../../interfaces/IWordFile'
 import { File } from '../File/File'
 import cl from './Files.module.css'
 import { FileCreateModal } from '../FileCreateModal/FileCreateModal'
 import { Button } from '../../../../components/UI/Button/Button'
-import { Loader } from '../../../../components/Loader/Loader'
 
 interface IProps {
     fetch: () => Promise<void>

@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
 import cl from '../../TemplateModel/Templates/Templates.module.css'
-import { Loader } from '../../../../components/Loader/Loader'
 import { IWordFile } from '../../../../interfaces/IWordFile'
 import { ITemplate, ITemplateItem } from '../../../../interfaces/ITemplate'
 import classes from './Changer.module.css';
-import { Form, FormCheck, FormSelect } from 'react-bootstrap'
+import { FormCheck, FormSelect } from 'react-bootstrap'
 import { Button } from '../../../../components/UI/Button/Button'
 import { downloadWordResult } from '../../../../http/wordApi'
 import saveFile from '../../../../utils/saveFile'

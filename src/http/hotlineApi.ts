@@ -8,5 +8,5 @@ export const getCategories = async (): Promise<ICategoryItem[]> => {
 }
 
 export const changeCategories = async (categories: ICategoryItem[]) => {
-     const { data } = await $host.post('hotline/categories', categories)
+     await $host.post('hotline/categories', categories)
 }

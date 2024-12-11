@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { getCategories, changeCategories } from '../../http/epicentrApi'
 import { CategoryViewer } from '../../components/CategoryViewer/CategoryViewer'
 

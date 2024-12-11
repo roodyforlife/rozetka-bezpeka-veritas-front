@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { Button } from '../components/UI/Button/Button'
-import { FileCreateModal } from './components/FileModel/FileCreateModal/FileCreateModal'
 import { Files } from './components/FileModel/Files/Files'
 import { getWordFiles } from '../http/wordApi'
 import { IWordFile } from '../interfaces/IWordFile'

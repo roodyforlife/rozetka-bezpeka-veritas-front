@@ -8,13 +8,13 @@ export const getTemplates = async (): Promise<ITemplate[]> => {
 }
 
 export const addTemplate = async (template: ITemplate) => {
-    const { data } = await $host.post('template', template)
+    await $host.post('template', template)
 }
 
 export const editTemplate = async (template: ITemplate) => {
-    const { data } = await $host.put('template', template)
+    await $host.put('template', template)
 }
 
 export const removeTemplate = async (id: string) => {
-    const { data } = await $host.delete('template/' + id)
+    await $host.delete('template/' + id)
 }

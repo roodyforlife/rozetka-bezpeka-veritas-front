@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { IWordFile } from '../../../../interfaces/IWordFile'
-import cl from './File.module.css'
 import { Button } from '../../../../components/UI/Button/Button'
 import { downloadWordFile, removeWordFile } from '../../../../http/wordApi'
 import { FileDeleteModal } from '../FileDeleteModal/FileDeleteModal'

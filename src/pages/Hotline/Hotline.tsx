@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { CategoryViewer } from '../../components/CategoryViewer/CategoryViewer'
 import { changeCategories, getCategories } from '../../http/hotlineApi'
 
