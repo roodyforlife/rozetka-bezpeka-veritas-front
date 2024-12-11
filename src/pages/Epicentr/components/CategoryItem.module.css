@@ -1,0 +1,7 @@
+.item {
+    display: grid;
+    grid-template-columns: 75px 1fr 1fr 1fr;
+    align-items: center;
+    border-bottom: 1px solid #d8d8d8;
+    padding: 15px 0;
+}

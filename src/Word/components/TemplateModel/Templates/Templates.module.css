@@ -1,0 +1,24 @@
+.items {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 20px;
+    row-gap: 20px;
+    padding: 20px 0;
+}
+
+.headerText {
+    font-weight: 600;
+}
+
+.content {
+    margin-top: 20px;
+    border: 1px solid #d1d1d1;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.title {
+    font-weight: 600;
+    font-size: 30px;
+    margin-bottom: 20px;
+}

@@ -1,0 +1,22 @@
+header {
+    border-bottom: 1px solid #000;;
+    
+}
+
+.headerContent {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    padding: 20px 0;
+    gap: 20px;
+}
+
+.headerContent > a {
+
+}
+
+.content {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 20px 0;
+}

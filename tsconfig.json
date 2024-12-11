@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "jsx": "react-jsx", // або "react" для старіших версій
+    "target": "ESNext", // або ES6
+    "module": "ESNext", // або CommonJS
+    "strict": true,
+    "typeRoots": ["node_modules/@types"],
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
+  }
+}

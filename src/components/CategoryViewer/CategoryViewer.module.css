@@ -1,0 +1,25 @@
+.items {
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: grid;
+    grid-template-columns: 75px 1fr 1fr 1fr;
+    align-items: center;
+    border-bottom: 1px solid #d8d8d8;
+    padding: 15px 0;
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+    background-color: white;
+}
+
+.title{
+    text-align: center;
+    font-weight: 600;
+    font-size: 45px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
