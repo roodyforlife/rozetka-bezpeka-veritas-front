@@ -15,15 +15,17 @@ export const CategoryViewer = ({fetchFunction, saveFunction, viewer}: IProps) =>
     const [categories, setCategories] = useState<ICategoryItem[]>([])
     const [loading, setLaoding] = useState<boolean>(false);
 
-  const fetchCategories = async () => {
-    setLaoding(true);
-    await fetchFunction().then((data) => setCategories(data)).finally(() => setLaoding(false))
-  }
-
   useEffect(() => {
-    fetchCategories()
-  }, [viewer])
+    const fetchCategories = async () => {
+      setLaoding(true);
+      await fetchFunction()
+        .then((data) => setCategories(data))
+        .finally(() => setLaoding(false));
+    };
   
+    fetchCategories();
+  }, [viewer])
+
 
   const handleItemChange = (categoryItem: ICategoryItem) => {
     setCategories(categories.map((category) => {
