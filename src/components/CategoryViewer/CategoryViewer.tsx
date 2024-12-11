@@ -22,7 +22,7 @@ export const CategoryViewer = ({fetchFunction, saveFunction, viewer}: IProps) =>
 
   useEffect(() => {
     fetchCategories()
-  }, [])
+  }, [viewer])
 
   const handleItemChange = (categoryItem: ICategoryItem) => {
     setCategories(categories.map((category) => {
