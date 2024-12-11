@@ -24,7 +24,7 @@ export const CategoryViewer = ({fetchFunction, saveFunction, viewer}: IProps) =>
     };
   
     fetchCategories();
-  }, [viewer])
+  }, [viewer, fetchFunction])
 
 
   const handleItemChange = (categoryItem: ICategoryItem) => {
