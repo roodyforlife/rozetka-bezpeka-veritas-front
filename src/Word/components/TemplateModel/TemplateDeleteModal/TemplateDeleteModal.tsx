@@ -15,21 +15,21 @@ export const TemplateDeleteModal = ({show, onHide, remove, template}: IProps) =>
     return (
       <Modal show={show} onHide={onHide}>
       <Modal.Header closeButton>
-        <Modal.Title>Deleting  new file</Modal.Title>
+        <Modal.Title>Видалення організації</Modal.Title>
       </Modal.Header>
       <Modal.Body>
       <Form>
         <Form.Group controlId="formFile">
-          <Form.Label>Do you really want to delete {template.name}?</Form.Label>
+          <Form.Label>Ви дійсно хочете видалити організацію: {template.name}?</Form.Label>
         </Form.Group>
       </Form>
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={onHide}>
-          Close
+          Закрити
         </Button>
-        <Button onClick={() => remove(template.id)}>
-          Remove
+        <Button type="dark" onClick={() => remove(template.id)}>
+          Видалити
         </Button>
       </Modal.Footer>
     </Modal>

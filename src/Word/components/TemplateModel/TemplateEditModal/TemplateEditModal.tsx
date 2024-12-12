@@ -93,7 +93,7 @@ export const TemplateEditModal = ({onHide, show, fetch, template}: IProps) => {
             <div className={cl.items}>
               {form.items.map((item) => 
                 <div key={item.id} className={cl.item}>
-                  <button className={cl.deleteButton}><img src={trashIcon} onClick={(e: MouseEvent) => handleDeleteItem(e, item.id)} /></button>
+                  <button className={cl.deleteButton}><img src={trashIcon} onClick={(e: MouseEvent) => handleDeleteItem(e, item.id)} alt="" /></button>
                   <CustomInput placeholder='Key' value={item.key} onChange={(val) => handleItemChange({...item, key: val})}></CustomInput>
                   <CustomInput placeholder='Value' value={item.value} onChange={(val) => handleItemChange({...item, value: val})}></CustomInput>
                 </div>

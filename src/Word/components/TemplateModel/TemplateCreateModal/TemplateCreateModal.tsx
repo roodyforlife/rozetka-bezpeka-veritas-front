@@ -94,7 +94,7 @@ export const TemplateCreateModal = ({onHide, show, fetch}: IProps) => {
           <div className={cl.items}>
             {form.items.map((item) => 
               <div key={item.id} className={cl.item}>
-                <button className={cl.deleteButton}><img src={trashIcon} onClick={(e: MouseEvent) => handleDeleteItem(e, item.id)} /></button>
+                <button className={cl.deleteButton}><img src={trashIcon} onClick={(e: MouseEvent) => handleDeleteItem(e, item.id)} alt="" /></button>
                 <CustomInput placeholder='Ключ' value={item.key} onChange={(val) => handleItemChange({...item, key: val})}></CustomInput>
                 <CustomInput placeholder='Значення' value={item.value} onChange={(val) => handleItemChange({...item, value: val})}></CustomInput>
               </div>
