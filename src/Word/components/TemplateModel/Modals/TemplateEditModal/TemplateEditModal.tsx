@@ -1,12 +1,12 @@
 import React, { MouseEvent, useEffect, useState } from 'react'
-import { ITemplate, ITemplateItem } from '../../../../interfaces/ITemplate'
+import { ITemplate, ITemplateItem } from '../../../../../interfaces/ITemplate'
 import uuid from 'react-uuid'
-import { editTemplate } from '../../../../http/templateApi'
+import { editTemplate } from '../../../../../http/templateApi'
 import { Form, FormCheck, Modal } from 'react-bootstrap'
-import { CustomInput } from '../../../../components/UI/CustomInput/CustomInput'
-import { Button } from '../../../../components/UI/Button/Button'
+import { CustomInput } from '../../../../../components/UI/CustomInput/CustomInput'
+import { Button } from '../../../../../components/UI/Button/Button'
 import cl from '../TemplateCreateModal/TemplateCreateModal.module.css';
-import { addIcon, trashIcon } from '../../../../imagesConsts'
+import { addIcon, trashIcon } from '../../../../../imagesConsts'
 
 interface IProps {
     show: boolean,

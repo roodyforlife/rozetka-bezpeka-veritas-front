@@ -3,7 +3,7 @@ import cl from './Templates.module.css';
 import { Button } from '../../../../components/UI/Button/Button';
 import { ITemplate } from '../../../../interfaces/ITemplate';
 import { Template } from '../Template/Template';
-import { TemplateCreateModal } from '../TemplateCreateModal/TemplateCreateModal';
+import { TemplateCreateModal } from '../Modals/TemplateCreateModal/TemplateCreateModal';
 import { addIcon, minusCircleIcon } from '../../../../imagesConsts';
 
 interface IProps {

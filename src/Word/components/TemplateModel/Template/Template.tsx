@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { ITemplate } from '../../../../interfaces/ITemplate'
 import { Button } from '../../../../components/UI/Button/Button'
-import { TemplateEditModal } from '../TemplateEditModal/TemplateEditModal'
-import { TemplateDeleteModal } from '../TemplateDeleteModal/TemplateDeleteModal'
+import { TemplateEditModal } from '../Modals/TemplateEditModal/TemplateEditModal'
+import { TemplateDeleteModal } from '../Modals/TemplateDeleteModal/TemplateDeleteModal'
 import { removeTemplate } from '../../../../http/templateApi'
 import { penIcon, trashIcon } from '../../../../imagesConsts'
 

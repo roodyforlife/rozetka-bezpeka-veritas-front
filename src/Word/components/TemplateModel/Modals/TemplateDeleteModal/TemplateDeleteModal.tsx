@@ -1,7 +1,7 @@
 import React from 'react'
-import { ITemplate } from '../../../../interfaces/ITemplate'
+import { ITemplate } from '../../../../../interfaces/ITemplate'
 import { Form, Modal } from 'react-bootstrap'
-import { Button } from '../../../../components/UI/Button/Button'
+import { Button } from '../../../../../components/UI/Button/Button'
 
 
 interface IProps {
