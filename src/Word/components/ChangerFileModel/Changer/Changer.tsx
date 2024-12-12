@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import cl from '../../TemplateModel/Templates/Templates.module.css'
 import { IWordFile } from '../../../../interfaces/IWordFile'
 import { ITemplate, ITemplateItem } from '../../../../interfaces/ITemplate'

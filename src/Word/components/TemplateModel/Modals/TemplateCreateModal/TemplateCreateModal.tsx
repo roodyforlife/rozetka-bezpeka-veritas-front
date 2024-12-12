@@ -1,5 +1,5 @@
 import React, { MouseEvent, useEffect, useState } from 'react'
-import { Form, FormCheck, FormSelect, Modal } from 'react-bootstrap';
+import { Form, FormCheck, Modal } from 'react-bootstrap';
 import { Button } from '../../../../../components/UI/Button/Button';
 import { ITemplate, ITemplateItem } from '../../../../../interfaces/ITemplate';
 import { CustomInput } from '../../../../../components/UI/CustomInput/CustomInput';
