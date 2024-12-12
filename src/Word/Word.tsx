@@ -32,9 +32,9 @@ export const Word = () => {
   return (
     <>
         <Loader loading={loading} />
-        <Changer hidden={false} files={files} templates={templates} />
+        <Templates templates={templates} hidden={false} fetch={fetchTemplates} />
+        <Changer hidden={true} files={files} templates={templates} />
         <Files files={files} fetch={fetchFiles} setLoading={setLoading} />
-        <Templates templates={templates} fetch={fetchTemplates} />
     </>
   )
 }

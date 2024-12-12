@@ -7,12 +7,20 @@ export const getTemplates = async (): Promise<ITemplate[]> => {
     return data as ITemplate[]
 }
 
-export const addTemplate = async (template: ITemplate) => {
-    await $host.post('template', template)
+export const addTemplate = async (data: FormData) => {
+    await $host.post('template', data, {
+        headers: {
+            "Content-Type": "multipart/form-data",
+        },
+    })
 }
 
-export const editTemplate = async (template: ITemplate) => {
-    await $host.put('template', template)
+export const editTemplate = async (data: FormData) => {
+    await $host.put('template', data, {
+        headers: {
+            "Content-Type": "multipart/form-data",
+        },
+    })
 }
 
 export const removeTemplate = async (id: string) => {

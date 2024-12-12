@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import cl from '../../TemplateModel/Templates/Templates.module.css'
 import { IWordFile } from '../../../../interfaces/IWordFile'
 import { ITemplate, ITemplateItem } from '../../../../interfaces/ITemplate'
@@ -24,7 +24,12 @@ export const Changer = ({files, templates, hidden = false}: IProps) => {
 
     const downloadResult = async () => {
         if (selectedTemplate) {
-            const downloadedFile: Blob = await downloadWordResult({ selectedFiles, selectedTemplate });
+            const downloadedFile: Blob = await downloadWordResult({ selectedFiles, selectedTemplate: {
+                id: selectedTemplate.id,
+                name: selectedTemplate.name,
+                items: selectedTemplate.items,
+                image: []
+            } });
             saveFile(downloadedFile, "result.zip")
         } else {
             alert("Error")
@@ -35,6 +40,17 @@ export const Changer = ({files, templates, hidden = false}: IProps) => {
     const filteredFiles = useMemo(() => {
         return files.filter((file) => file.name.toLocaleUpperCase().includes(fileSearchText.toLocaleUpperCase()))
     }, [files, fileSearchText])
+
+    // useEffect(() => {
+    //     if (selectedTemplate) {
+    //         var img: any = selectedTemplate.image
+
+    //     const uint8Array = new Uint8Array(img?.data);
+    //     const blob = new Blob([uint8Array], { type: "image/png" });
+    //     const url = URL.createObjectURL(blob);
+    //     setPreviewUrl(url);
+    //     }
+    // }, [selectedTemplate, templates])
 
     const toggleHidden = () => {
         setIsHidden(!isHidden)
