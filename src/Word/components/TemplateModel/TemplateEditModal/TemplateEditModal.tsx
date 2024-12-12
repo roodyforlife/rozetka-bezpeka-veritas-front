@@ -20,7 +20,7 @@ export const TemplateEditModal = ({onHide, show, fetch, template}: IProps) => {
   
        useEffect(() => {
         setForm(template)
-       }, [show])
+       }, [show, template])
 
       const handleAddItem = () => {
         const newItem = {
