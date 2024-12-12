@@ -4,6 +4,7 @@ import { File } from '../File/File'
 import cl from './Files.module.css'
 import { FileCreateModal } from '../FileCreateModal/FileCreateModal'
 import { Button } from '../../../../components/UI/Button/Button'
+import { addDocumentIcon } from '../../../../imagesConsts'
 
 interface IProps {
     fetch: () => Promise<void>
@@ -21,11 +22,11 @@ export const Files = ({files, fetch, setLoading}: IProps) => {
 
   return (
    <div className={cl.content}>
-    <div className={cl.title}>Uploaded files</div>
+    <div className={cl.title}>Шаблони документів</div>
    <FileCreateModal fetch={fetch} show={createModal} onHide={handleCloseCreateModal}></FileCreateModal>
-   <Button onClick={handleOpenCreateModal}>Add new file</Button>
+   <Button onClick={handleOpenCreateModal} icon={addDocumentIcon}>Додати файл</Button>
      <div className={cl.items}>
-        <div className={cl.headerText}>File name</div>
+        <div className={cl.headerText}>Назва</div>
         <div></div>
         <div></div>
         {files.map((file) => 

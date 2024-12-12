@@ -8,6 +8,7 @@ import { Button } from '../../../../components/UI/Button/Button'
 import { downloadWordResult } from '../../../../http/wordApi'
 import saveFile from '../../../../utils/saveFile'
 import { CustomInput } from '../../../../components/UI/CustomInput/CustomInput'
+import { zipFileIcon } from '../../../../imagesConsts';
 
 interface IProps {
     files: IWordFile[],
@@ -54,10 +55,10 @@ export const Changer = ({files, templates}: IProps) => {
 
   return (
     <div className={cl.content}>
-    <div className={cl.title}>Result</div>
+    <div className={cl.title}>Формування файлів</div>
     <div className={classes.blocks}>
         <div className={classes.block}>
-        <div className={classes.title}>Files</div>
+        <div className={classes.title}>Файли</div>
             <div className={classes.files}>
                 {files.map((file) => 
                     <div className={classes.file}>
@@ -68,9 +69,9 @@ export const Changer = ({files, templates}: IProps) => {
             </div>
         </div>
         <div className={cl.block}>
-        <div className={classes.title}>Templates</div>
+        <div className={classes.title}>Організація</div>
             <FormSelect value={selectedTemplate?.id} onChange={(e) => selectTemplate(e.target.value)} data-live-search="true">
-                <option value={'0'}>Select template</option>
+                <option value={'0'}>Виберіть організацію</option>
                 {templates.map((template) => 
                     <option value={template.id} key={template.id}>{template.name}</option>
                 )}
@@ -80,19 +81,19 @@ export const Changer = ({files, templates}: IProps) => {
     <div className={classes.keys}>
         {selectedTemplate && 
             <>
-            <div>Key</div>
-            <div>Value</div>
+            <div>Ключ</div>
+            <div>Значення</div>
             {selectedTemplate.items.map((item) =>
                 <>
-                    <CustomInput placeholder='Key' value={item.key} disabled={true}></CustomInput>
-                    <CustomInput placeholder='Value' value={item.value} onChange={(val) => handleItemChange(item, val)}></CustomInput>
+                    <CustomInput placeholder='Ключ' value={item.key} disabled={true}></CustomInput>
+                    <CustomInput placeholder='Значення' value={item.value} onChange={(val) => handleItemChange(item, val)}></CustomInput>
                 </>
             )}
             </>
         }
         
     </div>
-    <div className={classes.button}><Button onClick={downloadResult}>Download result</Button></div>
+    <div className={classes.button}><Button onClick={downloadResult} icon={zipFileIcon}>Завантажити результат</Button></div>
    </div>
   )
 }

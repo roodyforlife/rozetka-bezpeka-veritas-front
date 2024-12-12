@@ -41,22 +41,22 @@ export const FileCreateModal = ({onHide, show, fetch}: IProps) => {
     return (
         <Modal show={show} onHide={onHide}>
         <Modal.Header closeButton>
-          <Modal.Title>Add new file</Modal.Title>
+          <Modal.Title>Додавання нового файлу</Modal.Title>
         </Modal.Header>
         <Modal.Body>
         <Form>
           <Form.Group controlId="formFile">
-            <Form.Label>Выберите файл для загрузки</Form.Label>
+            <Form.Label>Виберіть файл формату .docx</Form.Label>
             <Form.Control type="file" accept=".docx" onChange={handleFileChange} />
           </Form.Group>
         </Form>
         </Modal.Body>
         <Modal.Footer>
           <Button onClick={onHide}>
-            Close
+            Закрити
           </Button>
-          <Button onClick={handleSave}>
-            Save Changes
+          <Button type="dark" onClick={handleSave}>
+            Зберегти
           </Button>
         </Modal.Footer>
       </Modal>

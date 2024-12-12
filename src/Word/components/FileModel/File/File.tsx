@@ -4,6 +4,7 @@ import { Button } from '../../../../components/UI/Button/Button'
 import { downloadWordFile, removeWordFile } from '../../../../http/wordApi'
 import { FileDeleteModal } from '../FileDeleteModal/FileDeleteModal'
 import saveFile from '../../../../utils/saveFile'
+import { fileDownloadIcon, trashIcon } from '../../../../imagesConsts'
 
 interface IProps {
     file: IWordFile,
@@ -40,8 +41,8 @@ export const File = ({file, fetch, setLoading}: IProps) => {
     <>
     <FileDeleteModal remove={remove} file={file} show={deleteModal} onHide={handleCloseDeleteModal} ></FileDeleteModal>
         <div>{file.name}</div>
-        <Button onClick={download}>Download</Button>
-        <Button onClick={handleOpenDeleteModal}>Remove</Button>
+        <Button onClick={handleOpenDeleteModal} icon={trashIcon}>Видалити</Button>
+        <Button onClick={download} icon={fileDownloadIcon}>Завантажити файл</Button>
     </>
   )
 }

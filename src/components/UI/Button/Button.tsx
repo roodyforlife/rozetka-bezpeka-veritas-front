@@ -1,18 +1,28 @@
-import React, { MouseEvent, ReactNode } from 'react'
+import React, { CSSProperties, MouseEvent, ReactNode } from 'react'
 import cl from './Button.module.css'
 
 interface IProps {
     onClick: () => void
-    children: ReactNode
+    children: ReactNode,
+    icon?: string
+    type?: ButtonType,
+    styles?: CSSProperties
 }
 
-export const Button = ({onClick, children}: IProps) => {
+type ButtonType = "default" | "dark"
+
+export const Button = ({onClick, children, icon, type = "default", styles}: IProps) => {
   const handleClick = (event: MouseEvent) => {
     event.preventDefault();
     onClick();
   }
 
   return (
-    <button className={cl.button} onClick={handleClick}>{children}</button>
+    <div>
+      <button data-button-type={type} className={cl.button} style={styles} onClick={handleClick}>
+        {icon && <div className={cl.icon}><img src={icon} alt="" /></div>}
+        {children}
+      </button>
+    </div>
   )
 }

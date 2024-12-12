@@ -7,6 +7,15 @@
 
 .item {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: auto 1fr 1fr;
     column-gap: 20px;
+    align-items: center;
+}
+
+.deleteButton {
+    background-color: transparent;
+}
+
+.deleteButton img {
+    width: 17px;
 }

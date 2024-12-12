@@ -4,6 +4,7 @@ import { Button } from '../../../../components/UI/Button/Button'
 import { TemplateEditModal } from '../TemplateEditModal/TemplateEditModal'
 import { TemplateDeleteModal } from '../TemplateDeleteModal/TemplateDeleteModal'
 import { removeTemplate } from '../../../../http/templateApi'
+import { penIcon, trashIcon } from '../../../../imagesConsts'
 
 interface IProps {
     template: ITemplate,
@@ -32,9 +33,8 @@ export const Template = ({template, fetch}: IProps) => {
     <TemplateEditModal template={template} fetch={fetch} show={showEditModal} onHide={handleCloseEditModal}></TemplateEditModal>
     <TemplateDeleteModal remove={remove} template={template} onHide={handleCloseDeleteModal} show={showDeleteModal}></TemplateDeleteModal>
     <div>{template.name}</div>
-    <div>{template.items.length}</div>
-    <Button onClick={handleOpenEditModal}>Edit</Button>
-    <Button onClick={handleOpenDeleteModal}>Remove</Button>
+    <Button onClick={handleOpenEditModal} icon={penIcon}>Редагувати</Button>
+    <Button onClick={handleOpenDeleteModal} icon={trashIcon}>Видалити</Button>
     </>
   )
 }

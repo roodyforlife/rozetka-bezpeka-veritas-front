@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { MouseEvent, useState } from 'react'
 import { Form, Modal } from 'react-bootstrap';
 import { Button } from '../../../../components/UI/Button/Button';
 import { ITemplate, ITemplateItem } from '../../../../interfaces/ITemplate';
@@ -6,6 +6,7 @@ import { CustomInput } from '../../../../components/UI/CustomInput/CustomInput';
 import uuid from 'react-uuid';
 import cl from './TemplateCreateModal.module.css';
 import { addTemplate } from '../../../../http/templateApi';
+import { addIcon, trashIcon } from '../../../../imagesConsts';
 
 interface IProps {
     show: boolean,
@@ -28,6 +29,11 @@ export const TemplateCreateModal = ({onHide, show, fetch}: IProps) => {
         value: ""
       }
       setForm({...form, items: [...form.items, newItem]})
+    }
+
+    const handleDeleteItem = (event: MouseEvent, id: string) => {
+      event.preventDefault();
+      setForm({...form, items: [...form.items.filter((item) => item.id !== id)]})
     }
 
     const handleItemChange = (item: ITemplateItem) => {
@@ -77,31 +83,32 @@ export const TemplateCreateModal = ({onHide, show, fetch}: IProps) => {
     return (
         <Modal show={show} onHide={onHide}>
         <Modal.Header closeButton>
-          <Modal.Title>Add new template</Modal.Title>
+          <Modal.Title>Додавання організації</Modal.Title>
         </Modal.Header>
         <Modal.Body>
         <Form>
           <Form.Group>
-            <Form.Label>Name</Form.Label>
+            <Form.Label>Назва</Form.Label>
             <Form.Control type="text" value={form.name} onChange={(e) => setForm({...form, name: e.target.value})} />
           </Form.Group>
           <div className={cl.items}>
             {form.items.map((item) => 
               <div key={item.id} className={cl.item}>
-                <CustomInput placeholder='Key' value={item.key} onChange={(val) => handleItemChange({...item, key: val})}></CustomInput>
-                <CustomInput placeholder='Value' value={item.value} onChange={(val) => handleItemChange({...item, value: val})}></CustomInput>
+                <button className={cl.deleteButton}><img src={trashIcon} onClick={(e: MouseEvent) => handleDeleteItem(e, item.id)} /></button>
+                <CustomInput placeholder='Ключ' value={item.key} onChange={(val) => handleItemChange({...item, key: val})}></CustomInput>
+                <CustomInput placeholder='Значення' value={item.value} onChange={(val) => handleItemChange({...item, value: val})}></CustomInput>
               </div>
             )}
           </div>
-          <Button onClick={handleAddItem}>Add item</Button>
+          <Button onClick={handleAddItem} icon={addIcon} styles={{width: "100%"}}>Add item</Button>
         </Form>
         </Modal.Body>
         <Modal.Footer>
           <Button onClick={onHide}>
-            Close
+            Закрити
           </Button>
-          <Button onClick={handleSave}>
-            Save Changes
+          <Button type="dark" onClick={handleSave}>
+            Зберегти
           </Button>
         </Modal.Footer>
       </Modal>
