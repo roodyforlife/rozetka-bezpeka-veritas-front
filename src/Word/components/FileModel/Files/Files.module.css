@@ -11,14 +11,23 @@
 }
 
 .content {
-    padding: 20px 0;
     border: 1px solid #d1d1d1;
     border-radius: 5px;
     padding: 20px;
+    margin: 10px 0;
 }
 
 .title {
     font-weight: 600;
     font-size: 30px;
-    margin-bottom: 20px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hideButton {
+    background-color: transparent;
 }

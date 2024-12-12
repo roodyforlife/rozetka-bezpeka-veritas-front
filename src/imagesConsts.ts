@@ -4,3 +4,4 @@ export const addDocumentIcon = require('./assets/add-document.png');
 export const addIcon = require('./assets/add.png');
 export const penIcon = require('./assets/pen-square.png');
 export const zipFileIcon = require('./assets/zip-file.png');
+export const minusCircleIcon = require("./assets/minus-circle.png");

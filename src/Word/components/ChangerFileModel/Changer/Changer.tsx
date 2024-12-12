@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import cl from '../../TemplateModel/Templates/Templates.module.css'
 import { IWordFile } from '../../../../interfaces/IWordFile'
 import { ITemplate, ITemplateItem } from '../../../../interfaces/ITemplate'
@@ -8,16 +8,19 @@ import { Button } from '../../../../components/UI/Button/Button'
 import { downloadWordResult } from '../../../../http/wordApi'
 import saveFile from '../../../../utils/saveFile'
 import { CustomInput } from '../../../../components/UI/CustomInput/CustomInput'
-import { zipFileIcon } from '../../../../imagesConsts';
+import { addIcon, minusCircleIcon, zipFileIcon } from '../../../../imagesConsts';
 
 interface IProps {
     files: IWordFile[],
     templates: ITemplate[]
+    hidden?: boolean
 }
 
-export const Changer = ({files, templates}: IProps) => {
+export const Changer = ({files, templates, hidden = false}: IProps) => {
     const [selectedFiles, setSelectedFiles] = useState<string[]>([])
     const [selectedTemplate, setSelectedTemplate] = useState<ITemplate>()
+    const [isHidden, setIsHidden] = useState<boolean>(hidden);
+    const [fileSearchText, setFileSearchText] = useState<string>('')
 
     const downloadResult = async () => {
         if (selectedTemplate) {
@@ -28,6 +31,14 @@ export const Changer = ({files, templates}: IProps) => {
         }
         
     }
+
+    const filteredFiles = useMemo(() => {
+        return files.filter((file) => file.name.toLocaleUpperCase().includes(fileSearchText.toLocaleUpperCase()))
+    }, [files, fileSearchText])
+
+    const toggleHidden = () => {
+        setIsHidden(!isHidden)
+      }
 
     const toggleSelectFile = (fileId: string) => {
         setSelectedFiles((prevSelectedFiles) =>
@@ -55,12 +66,18 @@ export const Changer = ({files, templates}: IProps) => {
 
   return (
     <div className={cl.content}>
+    <div className={cl.header}>
     <div className={cl.title}>Формування файлів</div>
+        <div><button className={cl.hideButton} onClick={toggleHidden}><img src={isHidden ? addIcon : minusCircleIcon} alt="" /></button></div>
+      </div>
+   {!isHidden &&
+    <div style={{marginTop: "20px"}}>
     <div className={classes.blocks}>
         <div className={classes.block}>
         <div className={classes.title}>Файли</div>
+        <div className={classes.find}><CustomInput placeholder='Пошук файлу' onChange={(val) => setFileSearchText(val)} value={fileSearchText}/></div>
             <div className={classes.files}>
-                {files.map((file) => 
+                {filteredFiles.map((file) => 
                     <div className={classes.file}>
                         <FormCheck checked={selectedFiles.includes(file.id)} onChange={() => toggleSelectFile(file.id)}></FormCheck>
                         <div>{file.name}</div>
@@ -86,7 +103,7 @@ export const Changer = ({files, templates}: IProps) => {
             {selectedTemplate.items.map((item) =>
                 <>
                     <CustomInput placeholder='Ключ' value={item.key} disabled={true}></CustomInput>
-                    <CustomInput placeholder='Значення' value={item.value} onChange={(val) => handleItemChange(item, val)}></CustomInput>
+                    <CustomInput placeholder='Значення' value={item.value} onChange={(val) => handleItemChange(item, val)} disabled={item.changeable}></CustomInput>
                 </>
             )}
             </>
@@ -94,6 +111,8 @@ export const Changer = ({files, templates}: IProps) => {
         
     </div>
     <div className={classes.button}><Button onClick={downloadResult} icon={zipFileIcon}>Завантажити результат</Button></div>
+    </div>
+   }
    </div>
   )
 }

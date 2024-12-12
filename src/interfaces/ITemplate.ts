@@ -8,4 +8,5 @@ export interface ITemplateItem {
     id: string,
     key: string,
     value: string
+    changeable: boolean
 }

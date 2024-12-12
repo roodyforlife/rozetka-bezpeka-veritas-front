@@ -2,7 +2,7 @@ import React, { MouseEvent, useEffect, useState } from 'react'
 import { ITemplate, ITemplateItem } from '../../../../interfaces/ITemplate'
 import uuid from 'react-uuid'
 import { editTemplate } from '../../../../http/templateApi'
-import { Form, Modal } from 'react-bootstrap'
+import { Form, FormCheck, Modal } from 'react-bootstrap'
 import { CustomInput } from '../../../../components/UI/CustomInput/CustomInput'
 import { Button } from '../../../../components/UI/Button/Button'
 import cl from '../TemplateCreateModal/TemplateCreateModal.module.css';
@@ -26,7 +26,8 @@ export const TemplateEditModal = ({onHide, show, fetch, template}: IProps) => {
         const newItem = {
           id: uuid(),
           key: "",
-          value: ""
+          value: "",
+          changeable: false
         }
         setForm({...form, items: [...form.items, newItem]})
       }
@@ -94,12 +95,13 @@ export const TemplateEditModal = ({onHide, show, fetch, template}: IProps) => {
               {form.items.map((item) => 
                 <div key={item.id} className={cl.item}>
                   <button className={cl.deleteButton}><img src={trashIcon} onClick={(e: MouseEvent) => handleDeleteItem(e, item.id)} alt="" /></button>
-                  <CustomInput placeholder='Key' value={item.key} onChange={(val) => handleItemChange({...item, key: val})}></CustomInput>
+                  <CustomInput styles={{maxWidth: "100px"}} placeholder='Key' value={item.key} onChange={(val) => handleItemChange({...item, key: val})}></CustomInput>
                   <CustomInput placeholder='Value' value={item.value} onChange={(val) => handleItemChange({...item, value: val})}></CustomInput>
+                  <FormCheck onChange={(e) => handleItemChange({...item, changeable: e.target.checked})} checked={item.changeable} label="не змінне" />
                 </div>
               )}
             </div>
-            <Button onClick={handleAddItem} icon={addIcon} styles={{width: "100%"}}>Add item</Button>
+            <Button onClick={handleAddItem} icon={addIcon} styles={{width: "100%"}}>Додати значення</Button>
           </Form>
           </Modal.Body>
           <Modal.Footer>

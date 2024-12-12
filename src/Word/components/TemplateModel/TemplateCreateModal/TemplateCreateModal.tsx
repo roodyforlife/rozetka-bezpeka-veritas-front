@@ -1,5 +1,5 @@
 import React, { MouseEvent, useState } from 'react'
-import { Form, Modal } from 'react-bootstrap';
+import { Form, FormCheck, Modal } from 'react-bootstrap';
 import { Button } from '../../../../components/UI/Button/Button';
 import { ITemplate, ITemplateItem } from '../../../../interfaces/ITemplate';
 import { CustomInput } from '../../../../components/UI/CustomInput/CustomInput';
@@ -26,7 +26,8 @@ export const TemplateCreateModal = ({onHide, show, fetch}: IProps) => {
       const newItem = {
         id: uuid(),
         key: "",
-        value: ""
+        value: "",
+        changeable: false
       }
       setForm({...form, items: [...form.items, newItem]})
     }
@@ -95,12 +96,13 @@ export const TemplateCreateModal = ({onHide, show, fetch}: IProps) => {
             {form.items.map((item) => 
               <div key={item.id} className={cl.item}>
                 <button className={cl.deleteButton}><img src={trashIcon} onClick={(e: MouseEvent) => handleDeleteItem(e, item.id)} alt="" /></button>
-                <CustomInput placeholder='Ключ' value={item.key} onChange={(val) => handleItemChange({...item, key: val})}></CustomInput>
+                <CustomInput styles={{maxWidth: "100px"}} placeholder='Ключ' value={item.key} onChange={(val) => handleItemChange({...item, key: val})}></CustomInput>
                 <CustomInput placeholder='Значення' value={item.value} onChange={(val) => handleItemChange({...item, value: val})}></CustomInput>
+                <FormCheck checked={item.changeable} onChange={(e) => handleItemChange({...item, changeable: e.target.checked})} label="не змінне" />
               </div>
             )}
           </div>
-          <Button onClick={handleAddItem} icon={addIcon} styles={{width: "100%"}}>Add item</Button>
+          <Button onClick={handleAddItem} icon={addIcon} styles={{width: "100%"}}>Додати значення</Button>
         </Form>
         </Modal.Body>
         <Modal.Footer>
