@@ -15,19 +15,13 @@ interface IProps {
 }
 
 export const TemplateCreateModal = ({onHide, show, fetch}: IProps) => {
-  const defaultValue = {
-    id: uuid(),
-    name: "",
-    items: [],
-    image: []
-  }
-    const [form, setForm] = useState<ITemplate>(defaultValue);
+    const [form, setForm] = useState<ITemplate>({ id: uuid(), name: "", items: [], image: [] });
     const [previewUrl, setPreviewUrl] = useState<string | null>(null);
 
     useEffect(() => {
-      setForm(defaultValue)
+      setForm({ id: uuid(), name: "", items: [], image: [] })
       setPreviewUrl(null)
-    }, [show, defaultValue])
+    }, [show])
 
     const handleAddItem = () => {
       const newItem: ITemplateItem = {
@@ -96,7 +90,7 @@ export const TemplateCreateModal = ({onHide, show, fetch}: IProps) => {
       await addTemplate(formData);
       onHide();
       fetch();
-      setForm(defaultValue)
+      setForm({ id: uuid(), name: "", items: [], image: [] })
     }
 
     const handleFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
