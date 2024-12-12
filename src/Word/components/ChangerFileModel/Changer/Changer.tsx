@@ -66,9 +66,9 @@ export const Changer = ({files, templates, hidden = false}: IProps) => {
 
   return (
     <div className={cl.content}>
-    <div className={cl.header}>
+    <div className={cl.header} onClick={toggleHidden}>
     <div className={cl.title}>Формування файлів</div>
-        <div><button className={cl.hideButton} onClick={toggleHidden}><img src={isHidden ? addIcon : minusCircleIcon} alt="" /></button></div>
+        <div><button className={cl.hideButton} ><img src={isHidden ? addIcon : minusCircleIcon} alt="" /></button></div>
       </div>
    {!isHidden &&
     <div style={{marginTop: "20px"}}>

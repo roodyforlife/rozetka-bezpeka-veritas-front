@@ -25,9 +25,9 @@ export const Templates = ({templates, fetch, hidden = true}: IProps) => {
   
   return (
     <div className={cl.content}>
-      <div className={cl.header}>
+      <div className={cl.header} onClick={toggleHidden}>
         <div className={cl.title}>Організації</div>
-        <div><button className={cl.hideButton} onClick={toggleHidden}><img src={isHidden ? addIcon : minusCircleIcon} alt="" /></button></div>
+        <div><button className={cl.hideButton}><img src={isHidden ? addIcon : minusCircleIcon} alt="" /></button></div>
       </div>
    <TemplateCreateModal fetch={fetch} show={createModal} onHide={handleCloseCreateModal}></TemplateCreateModal>
     {!isHidden &&
