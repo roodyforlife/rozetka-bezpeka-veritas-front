@@ -32,8 +32,8 @@ export const Word = () => {
   return (
     <>
         <Loader loading={loading} />
-        <Templates templates={templates} hidden={false} fetch={fetchTemplates} />
-        <Changer hidden={true} files={files} templates={templates} />
+        <Changer hidden={false} files={files} templates={templates} />
+        <Templates templates={templates} fetch={fetchTemplates} />
         <Files files={files} fetch={fetchFiles} setLoading={setLoading} />
     </>
   )

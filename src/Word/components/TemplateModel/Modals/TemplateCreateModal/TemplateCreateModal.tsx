@@ -27,7 +27,7 @@ export const TemplateCreateModal = ({onHide, show, fetch}: IProps) => {
     useEffect(() => {
       setForm(defaultValue)
       setPreviewUrl(null)
-    }, [show])
+    }, [show, defaultValue])
 
     const handleAddItem = () => {
       const newItem: ITemplateItem = {
